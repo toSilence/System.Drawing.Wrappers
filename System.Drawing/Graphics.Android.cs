@@ -167,6 +167,9 @@ namespace System.Drawing
 
         public Size MeasureString(string text, Font font)
         {
+            this.paint.TextSize = font.Size;
+            this.paint.SetTypeface(font.FontFamily.Typeface);
+            
             using (var p = new Paint(this.paint))
             using (var bounds = new Rect())
             using (var fm = p.GetFontMetrics())
